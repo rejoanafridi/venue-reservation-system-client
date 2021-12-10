@@ -1,14 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../../Context/useAuth";
 import logo from "../../../images/diu logo.png";
 const Nav = () => {
+	const { user, logOut } = useAuth();
+	const handleLogout = () => {
+		logOut();
+	};
 	return (
 		<nav
 			className="navbar navbar-expand-lg navbar navbar-light"
 			// style="background-color: #e3f2fd;"
 		>
 			<div className="container">
-				<Link to="/" className="navbar-brand fw-bold rounded text-secondary p-1" href="#">
+				<Link
+					to="/"
+					className="navbar-brand fw-bold rounded text-secondary p-1"
+					href="#"
+				>
 					<img src={logo} alt="" width="100" height="70" />
 					Vanue
 				</Link>
@@ -56,12 +65,37 @@ const Nav = () => {
 							</Link>
 						</li>
 					</ul>
-
-				
-							<Link to="/login" className="nav-link btn btn-primary text-white mx-1" href="#">
-								Login
-							</Link>
+					{user?.email ? (
+						<>
 						
+								<Link
+									to="/dashboard"
+									className="nav-link active btn btn-success text-white fw-bold mx-1 "
+									aria-current="page"
+									href="#"
+								>
+									Dashboard
+								</Link>
+						
+							
+								<a type="button" onClick={handleLogout} className="btn btn-danger text-white">
+									LogOut
+								</a>
+
+                                        <a type="text" className="text-success fw-bold mx-1 text-decoration-none">Login as : {user?.email} </a>
+							
+						</>
+					) : (
+						<Link
+							to="/login"
+							className="nav-link btn btn-primary text-white mx-1"
+							href="#"
+						>
+							Login
+						</Link>
+					)}
+                         
+                    
 				</div>
 			</div>
 		</nav>

@@ -6,25 +6,36 @@ import Home from "./Components/pages/Home/Home";
 import Services from "./Components/pages/Services/Services";
 import About from "./Components/pages/About/About";
 import Footer from "./Components/pages/Shared/Footer/Footer";
+import Login from "./Components/pages/Auth/Logiin/Login";
+import AuthProvider from "./Components/Context/AuthProvider";
+import Booking from "./Components/pages/Services/Booking";
 function App() {
 	return (
 		<div className="App">
-			<Router>
-				<Nav></Nav>
-				<Route exact path="/">
-					<Home></Home>
-				</Route>
-				<Route path="/home">
-					<Home></Home>
-				</Route>
-				<Route path="/services">
-				<Services></Services>
-				</Route>
-				<Route path="/about">
-					<About></About>
-				</Route>
-        <Footer></Footer>
-			</Router>
+			<AuthProvider>
+				<Router>
+					<Nav></Nav>
+					<Route exact path="/">
+						<Home></Home>
+					</Route>
+					<Route path="/home">
+						<Home></Home>
+					</Route>
+					<Route path="/services">
+						<Services></Services>
+					</Route>
+					<Route path="/about">
+						<About></About>
+					</Route>
+					<Route path="/login">
+						<Login></Login>
+					</Route>
+					<Route path="/booking/:Id">
+						<Booking></Booking>
+					</Route>
+					<Footer></Footer>
+				</Router>
+			</AuthProvider>
 		</div>
 	);
 }
