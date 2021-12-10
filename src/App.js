@@ -8,7 +8,8 @@ import About from "./Components/pages/About/About";
 import Footer from "./Components/pages/Shared/Footer/Footer";
 import Login from "./Components/pages/Auth/Logiin/Login";
 import AuthProvider from "./Components/Context/AuthProvider";
-import Booking from "./Components/pages/Services/Booking";
+import Booking from "./Components/pages/Booking/Booking";
+import Payment from "./Components/pages/Payment/Payment";
 function App() {
 	return (
 		<div className="App">
@@ -30,7 +31,10 @@ function App() {
 					<Route path="/login">
 						<Login></Login>
 					</Route>
-					<Route path="/booking/:Id">
+					<Route path="/success">
+						<Payment></Payment>
+					</Route>
+					<Route path="/booking/:bookingId">
 						<Booking></Booking>
 					</Route>
 					<Footer></Footer>
