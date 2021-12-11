@@ -8,10 +8,7 @@ const Nav = () => {
 		logOut();
 	};
 	return (
-		<nav
-			className="navbar navbar-expand-lg navbar navbar-light"
-			// style="background-color: #e3f2fd;"
-		>
+		<nav class="navbar navbar-expand-lg navbar navbar-light" style={{backgroundColor: "#e3f2fd"}} >
 			<div className="container">
 				<Link
 					to="/"
@@ -72,7 +69,7 @@ const Nav = () => {
 									to="/dashboard"
 									className="nav-link active btn btn-success text-white fw-bold mx-1 "
 									aria-current="page"
-									href="#"
+									
 								>
 									Dashboard
 								</Link>

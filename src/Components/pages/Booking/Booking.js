@@ -7,6 +7,7 @@ import useAuth from "../../Context/useAuth";
 const Booking = () => {
 	const [single, setSingle] = useState({});
 	const { bookingId } = useParams();
+	const [disable, setDisable] = React.useState(false);
 	// const { user } = useAuth();
 	const { user } = useAuth();
 	const history = useHistory();
@@ -72,14 +73,16 @@ const Booking = () => {
 			},
 			body: JSON.stringify(order),
 		}).then(() => {
-			alert("Booking was successfully added waiting for your confirm");
-			history.push("/payment");
+			alert("Booking was successfully added please payment now");
+			
+
+			// history.push("/");
 		});
 	};
 	return (
 		<div className="text-center">
 			<Container className="form text-start border-4 rounded-3 p-5 my-4 border-light border">
-				<h3 className="text-warning text-center pb-4 mb-lg-4  rounded ">
+				<h3 className="text-warning text-center pb-4 mb-lg-4  rounded bg-dark rounded ">
 					Confirm Booking.
 				</h3>
 				<div className="d-lg-flex">
@@ -98,7 +101,7 @@ const Booking = () => {
 									className="align-
 								center"
 								>
-									<Button className="btn-warning text-white">Back</Button>
+									<Button className="btn-primary text-white text-center ">Back</Button>
 								</Link>
 							</Card>
 						</CardGroup>
@@ -152,15 +155,15 @@ const Booking = () => {
 								/>
 							</Form.Group>
 
-							<Button variant="warning text-center align-center" type="submit">
+							<Button variant="warning text-center align-center fw-bold  m-1" type="submit">
 								Confirm Book
 							</Button>
 							<Button
 								onClick={payment}
-								variant="warning text-center align-center"
+								variant="success text-center align-center m-1 fw-bold text-white"
 								type="submit"
 							>
-								payment
+								Payment
 							</Button>
 						</Form>
 					</div>
