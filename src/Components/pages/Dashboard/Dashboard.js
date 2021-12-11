@@ -31,7 +31,7 @@ const Dashboard = () => {
 							<Nav.Link
 								to={`${url}/addProduct`}
 								as={HashLink}
-								className="w-75 text-white fw-bold btn btn-warning m-1 "
+								className="w-75 text-white fw-bold btn btn-warning p1"
 							>
 								Add Product
 							</Nav.Link>
@@ -39,7 +39,7 @@ const Dashboard = () => {
 							<Nav.Link
 								to={`${url}/management`}
 								as={HashLink}
-								className="w-75 text-white fw-bold btn btn-warning m-1 "
+								className="w-75 text-white fw-bold btn btn-warning p-1 mt-5"
 							>
 								Manage Product
 							</Nav.Link>
@@ -50,24 +50,24 @@ const Dashboard = () => {
 							<Nav.Link
 								to={`${url}/myOrders`}
 								as={HashLink}
-								className="w-75 text-white fw-bold btn btn-warning m-1 "
+								className="w-100 text-white fw-bold btn btn-warning mt-5"
 							>
 								My Orders
 							</Nav.Link>
 							<Nav.Link
 								to={`${url}/reviews`}
 								as={HashLink}
-								className="w-75 text-white fw-bold btn btn-warning m-1"
+								className="w-100 text-white fw-bold btn btn-warning  mt-5"
 							>
 								Review
 							</Nav.Link>
-							<Nav.Link
-								to={`${url}/payLink`}
+							{/* <Nav.Link
+								to={`${url}/payments`}
 								as={HashLink}
 								className="w-75 text-white fw-bold btn btn-warning m-1"
 							>
 								Payment
-							</Nav.Link>
+							</Nav.Link> */}
 						</div>
 					)}
 				</Col>
@@ -80,8 +80,8 @@ const Dashboard = () => {
 							<MyOrders></MyOrders>
 						</PrivateRouter>
 						<PrivateRouter path={`${path}/payments`}>
-              <Paymentsummary></Paymentsummary>
-            </PrivateRouter>
+							<Paymentsummary></Paymentsummary>
+						</PrivateRouter>
 						<AdminRoute path={`${path}/addProduct`}>
 							<AddPackage></AddPackage>
 						</AdminRoute>

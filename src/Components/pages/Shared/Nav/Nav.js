@@ -7,6 +7,7 @@ const Nav = () => {
 	const handleLogout = () => {
 		logOut();
 	};
+	
 	return (
 		<nav class="navbar navbar-expand-lg navbar navbar-light" style={{backgroundColor: "#e3f2fd"}} >
 			<div className="container">
@@ -16,7 +17,7 @@ const Nav = () => {
 					href="#"
 				>
 					<img src={logo} alt="" width="100" height="70" />
-					Vanue
+					Venue
 				</Link>
 				<button
 					className="navbar-toggler"
@@ -44,7 +45,7 @@ const Nav = () => {
 						<li className="nav-item">
 							<Link
 								to="/services"
-								className="nav-link active btn btn-dark text-white fw-bold mx-1 "
+								className="nav-link btn-small active btn btn-dark text-white fw-bold mx-1 "
 								aria-current="page"
 								href="#"
 							>
@@ -79,8 +80,8 @@ const Nav = () => {
 									LogOut
 								</a>
 
-                                        <a type="text" className="text-success fw-bold mx-1 text-decoration-none">Login as : {user?.email} </a>
-							
+                                        <a type="text" className="text-success fw-bold mx-1 text-decoration-none">{user?.email} </a>
+								<img src={user.photoURL} height="50px" width="50px"alt="" />
 						</>
 					) : (
 						<Link

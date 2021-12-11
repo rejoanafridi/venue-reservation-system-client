@@ -1,7 +1,8 @@
 import { Card, Col, Button } from "react-bootstrap";
 
+
 const SingleOrder = (props) => {
-	const { _id, name, description, image, price } = props.order.single;
+	const { _id, name, description, image, cost } = props.order.single;
 	console.log(props.order.isPending);
 	const { isPending } = props.order;
 	const { orderId } = props.order;
@@ -14,7 +15,7 @@ const SingleOrder = (props) => {
 				<Card.Body>
 					<Card.Title>{name}</Card.Title>
 					<Card.Text>{description}</Card.Text>
-					<p>Cost: {price}</p>
+					<p>Cost: {cost} Taka</p>
 					<p>Product Id: {_id}</p>
 				</Card.Body>
 				<Card.Footer>
@@ -32,7 +33,7 @@ const SingleOrder = (props) => {
 						</Button>
 					) : (
 						<Button className="mx-4" disabled variant="dark">
-							<i className="fas fa-check"></i> Confirm
+							<i className="fas fa-check"></i> Confirmed
 						</Button>
 					)}
 				</Card.Footer>

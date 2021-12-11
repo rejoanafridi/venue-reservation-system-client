@@ -1,8 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Button, Card, CardGroup, Container, Form } from "react-bootstrap";
+
+import { Button, Container, CardGroup, Form, TabContainer } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import useAuth from "../../Context/useAuth";
+
+import Card from "react-bootstrap/Card";
 // import useAuth from "../../Context/useAuth";
 const Booking = () => {
 	const [single, setSingle] = useState({});
@@ -16,7 +19,7 @@ const Booking = () => {
 	const addressRef = useRef();
 	const idRef = useRef();
 	const phoneRef = useRef();
-	const cardRef = useRef();
+	const dateRef = useRef();
 
 	const { name, image, status, description, cost } = single;
 
@@ -35,6 +38,7 @@ const Booking = () => {
 			product_profile: description,
 			product_image: image,
 			product_amount: cost,
+			
 		};
 		// alert(order.product_ammount)
 		fetch(`http://localhost:5500/init`, {
@@ -57,6 +61,7 @@ const Booking = () => {
 		const productId = idRef.current.value;
 		const userPhone = phoneRef.current.value;
 		const isPending = true;
+		const date = dateRef.current.value;
 		const order = {
 			userMail,
 			userName,
@@ -65,6 +70,7 @@ const Booking = () => {
 			userPhone,
 			single,
 			isPending,
+			date
 		};
 		fetch("http://localhost:5500/orders", {
 			method: "POST",
@@ -74,7 +80,6 @@ const Booking = () => {
 			body: JSON.stringify(order),
 		}).then(() => {
 			alert("Booking was successfully added please payment now");
-			
 
 			// history.push("/");
 		});
@@ -93,16 +98,9 @@ const Booking = () => {
 								<Card.Body>
 									<Card.Title>{name}</Card.Title>
 									<Card.Text>{description}</Card.Text>
-									<p>Cost: {cost}</p>
+									<p>Cost: {cost} Taka </p>
+									<i class="fas fa-hourglass-start">6 hours</i>
 								</Card.Body>
-
-								<Link
-									to="/home"
-									className="align-
-								center"
-								>
-									<Button className="btn-primary text-white text-center ">Back</Button>
-								</Link>
 							</Card>
 						</CardGroup>
 					</div>
@@ -154,8 +152,20 @@ const Booking = () => {
 									placeholder="Phone"
 								/>
 							</Form.Group>
+							<Form.Group className="mb-3" controlId="formBasicphone">
+								<Form.Label>Date</Form.Label>
+								<Form.Control
+									type="text"
+									ref={dateRef}
+									required
+									placeholder="Date"
+								/>
+							</Form.Group>
 
-							<Button variant="warning text-center align-center fw-bold  m-1" type="submit">
+							<Button
+								variant="warning text-center align-center fw-bold  m-1"
+								type="submit"
+							>
 								Confirm Book
 							</Button>
 							<Button

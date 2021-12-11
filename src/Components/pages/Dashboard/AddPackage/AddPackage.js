@@ -22,19 +22,19 @@ const AddPackage = () => {
 			status: true,
 		};
 
-		fetch("http://localhost:5500/addPackage", {
+		fetch("http://localhost:5500/addServices", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
 			},
 			body: JSON.stringify(item),
 		}).then(() => {
-			history.push("/home#packages");
+			history.push("/home");
 		});
 	};
 	return (
-		<Container className="form text-start border-4 rounded-3 p-5 my-4 border-success border">
-			<h3 className="text-success">Add New Package</h3>
+		<Container className="form text-start border-3 rounded-3 p-5 my-4 border">
+			<h3 className="text-warning">Add New Package</h3>
 			<Form onSubmit={handelSubmit} className=" mx-auto">
 				<Form.Group className="mb-3" controlId="formGroupName">
 					<Form.Label>Package Name:</Form.Label>
@@ -67,7 +67,7 @@ const AddPackage = () => {
 					<Form.Label>Image Url:</Form.Label>
 					<Form.Control ref={fileRef} required type="text" size="sm" />
 				</Form.Group>
-				<Button type="submit" variant="success">
+				<Button type="submit" variant="warning">
 					Add Package
 				</Button>
 			</Form>

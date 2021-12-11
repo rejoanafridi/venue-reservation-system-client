@@ -43,7 +43,7 @@ const useFirebase = () => {
 	}, [auth]);
 
 	useEffect(() => {
-		fetch(`https://stark-refuge-22237.herokuapp.com/users/${user.email}`)
+		fetch(`http://localhost:5500/users/${user.email}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setAdmin(data.admin);

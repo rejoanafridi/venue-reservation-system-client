@@ -8,7 +8,11 @@ const Header = () => {
 					<div className="col-lg-6">
 						<div className="p-3">
 							<h2 className="fw-bold text-center mt-3">WE ARE HERE FOR YOU</h2>
-							<p className=" text-center fw-light"> we are 24/7 for you.</p>
+							<p className=" text-center fw-light"> we are 24/7 for you.
+							</p>
+
+
+							
 							<button type="button" className="btn btn-danger text-center">
 								Emergency
 							</button>
